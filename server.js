@@ -2,15 +2,12 @@ import app from './app.js';
 import dotenv from 'dotenv';
 import connectDB from "./config/db.js";
 
-dotenv.config({ path: './config/config.env' });
+dotenv.config(); // ✅ FIXED (no custom path)
 
 connectDB();
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`server is running on port ${port}`);
-  console.log(process.env.PORT);
-  console.log(process.env.JWT_SECRET);
-
+  console.log(`Server is running on port ${port}`);
 });
